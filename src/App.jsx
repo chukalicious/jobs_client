@@ -2,6 +2,7 @@ import React from 'react';
 import MainLayout from './layouts/MainLayout';
 import Home from './components/Home';
 import ListingsContainer from './components/Listings';
+import RegisterContainer from './components/Register';
 import {
   Route,
   createBrowserRouter,
@@ -20,6 +21,11 @@ const App = () => {
           path='/'
           element={<Home />}
         />
+        <Route
+          path='/register'
+          element={<RegisterContainer />}
+        />
+
         <Route
           path='/listings'
           element={<ListingsContainer />}

@@ -5,7 +5,12 @@ const Navbar = () => {
   return (
     <div className='navbar bg-base-100'>
       <div className='flex-1'>
-        <a className='btn btn-ghost text-xl'>Jobs Postings</a>
+        <Link
+          to='/'
+          className='btn btn-ghost text-xl'
+        >
+          Jobs Postings
+        </Link>
       </div>
       <div className='flex-none'>
         <Link to='/listings'>
