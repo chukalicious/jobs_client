@@ -1,11 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout, reset } from '../features/auth/authSlice';
 
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth);
-  console.log('Navbar: user: ', user);
-  const firstName = user.name.split(' ')[0];
+  // console.log('Navbar: user: ', user);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate('/login');
+  };
+
+  // const firstName = () => {
+  //   if (!user) {
+  //     return;
+  //   } else {
+  //     const firstName = user.name.split(' ')[0];
+  //     return firstName;
+  //   }
+  // };
 
   return (
     <div className='navbar bg-base-100'>
@@ -18,10 +36,14 @@ const Navbar = () => {
         </Link>
       </div>
       <div className='flex-none'>
-        <h1 className='text-2xl font-extralight'>Welcome {firstName}</h1>
-        <Link to='/listings'>
-          <button className='btn btn-square btn-ghost'>Jobs</button>
-        </Link>
+        {user && <h1 className='text-2xl font-extralight'>Welcome </h1>}
+
+        <button
+          onClick={handleLogout}
+          className='btn btn-square btn-ghost'
+        >
+          Logout
+        </button>
       </div>
     </div>
   );

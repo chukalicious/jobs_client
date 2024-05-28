@@ -33,7 +33,7 @@ const RegisterContainer = () => {
     if (success || user) {
       navigate('/listings');
     }
-    // dispatch(reset());
+    dispatch(reset());
   }, [error, success, user, navigate]);
 
   const handleChange = (e) => {
@@ -56,6 +56,10 @@ const RegisterContainer = () => {
     };
     dispatch(register(registerData));
   };
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <RegisterForm
