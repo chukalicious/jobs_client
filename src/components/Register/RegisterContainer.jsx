@@ -7,12 +7,14 @@ import { register, reset } from '../../features/auth/authSlice';
 const RegisterContainer = () => {
   const [registerData, setRegisterData] = useState({
     email: '',
-    username: '',
+    name: '',
     password: '',
     retype: '',
   });
 
-  const { email, username, password, retype } = registerData;
+  const { email, name, password, retype } = registerData;
+
+  console.log('RegisterContainer: registerData: ', registerData);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -26,11 +28,12 @@ const RegisterContainer = () => {
       navigate('/listings');
     }
     if (error) {
-      console.log(error);
+      console.log(message);
     }
     if (success || user) {
       navigate('/listings');
     }
+    // dispatch(reset());
   }, [error, success, user, navigate]);
 
   const handleChange = (e) => {
@@ -43,9 +46,14 @@ const RegisterContainer = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password !== retype) {
-      console.log('Passwords do not match');
+      alert('Passwords do not match');
       return;
     }
+    const registerData = {
+      email,
+      name,
+      password,
+    };
     dispatch(register(registerData));
   };
 

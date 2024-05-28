@@ -15,6 +15,7 @@ export const register = createAsyncThunk(
   'auth/register',
   async (user, thunkAPI) => {
     try {
+      localStorage.setItem('user', JSON.stringify(user));
       return await authServices.register(user);
     } catch (error) {
       const message =
@@ -48,7 +49,7 @@ export const authSlice = createSlice({
         state.loading = false;
         state.success = true;
         state.error = false;
-        state.message = action.payload.message;
+        state.user = action.payload;
       })
       .addCase(register.rejected, (state, action) => {
         state.loading = false;
