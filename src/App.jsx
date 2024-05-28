@@ -3,6 +3,7 @@ import MainLayout from './layouts/MainLayout';
 import Home from './components/Home';
 import ListingsContainer from './components/Listings';
 import RegisterContainer from './components/Register';
+import LoginContainer from './components/Login';
 import {
   Route,
   createBrowserRouter,
@@ -25,7 +26,10 @@ const App = () => {
           path='/register'
           element={<RegisterContainer />}
         />
-
+        <Route
+          path='/login'
+          element={<LoginContainer />}
+        />
         <Route
           path='/listings'
           element={<ListingsContainer />}

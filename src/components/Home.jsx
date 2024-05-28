@@ -13,10 +13,7 @@ const Home = () => {
           <Link to='/register'>
             <button className='btn btn-primary mb-2'>Sign Up</button>
           </Link>
-          <Link
-            to='login'
-            target='_blank'
-          >
+          <Link to='/login'>
             <button className='btn btn-primary mb-2'>Login</button>
           </Link>
         </div>
