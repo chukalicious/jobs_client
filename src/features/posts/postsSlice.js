@@ -82,10 +82,7 @@ export const postsSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => {
-      state.loading = false;
-      state.success = false;
-      state.error = false;
-      state.message = '';
+      initialState;
     },
   },
   extraReducers: (builder) => {

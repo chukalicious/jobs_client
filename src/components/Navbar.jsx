@@ -17,17 +17,8 @@ const Navbar = () => {
     navigate('/login');
   };
 
-  // const firstName = () => {
-  //   if (!user) {
-  //     return;
-  //   } else {
-  //     const firstName = user.name.split(' ')[0];
-  //     return firstName;
-  //   }
-  // };
-
   return (
-    <div className='navbar bg-base-100'>
+    <div className='navbar bg-accent'>
       <div className='flex-1'>
         <Link
           to='/'
@@ -37,11 +28,17 @@ const Navbar = () => {
         </Link>
       </div>
       <div className='flex-none'>
-        {user && <h1 className='text-2xl font-extralight'>Welcome </h1>}
-
+        <Link
+          to='/listings'
+          className='btn btn-square btn-ghost'
+        >
+          <button className='btn mx-14 btn-primary text-md'>
+            See Listings
+          </button>
+        </Link>
         <button
           onClick={handleLogout}
-          className='btn btn-square btn-ghost'
+          className='btn mx-14 btn-secondary text-md'
         >
           Logout
         </button>
