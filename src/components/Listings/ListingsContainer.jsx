@@ -9,9 +9,7 @@ const ListingsContainer = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts.posts);
-  console.log('ListingsContainer: posts:', posts);
-  const user = useSelector((state) => state.auth);
-  console.log('ListingsContainer: user: user.user', user); // user: user.user { _id: '60f7b3b3b3
+  const user = useSelector((state) => state.auth); // user: user.user { _id: '60f7b3b3b3
 
   useEffect(() => {
     if (!user.user) {

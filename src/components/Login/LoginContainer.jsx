@@ -34,7 +34,6 @@ const LoginContainer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(loginData);
     dispatch(login(loginData));
   };
 
