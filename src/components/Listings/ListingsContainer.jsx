@@ -23,7 +23,7 @@ const ListingsContainer = () => {
   return (
     <>
       {/* <SearchBar /> */}
-      <div className='navbar text-primary-content flex '>
+      <div className='navbar text-primary-content'>
         <button
           onClick={() => navigate('/create-job')}
           className='btn btn-secondary text-lg mx-auto my-6'

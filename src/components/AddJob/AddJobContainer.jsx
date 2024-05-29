@@ -35,7 +35,7 @@ const AddJobContainer = () => {
     }
 
     dispatch(reset());
-  }, [error, success, message, dispatch, navigate]);
+  }, [error, success, message, dispatch, posts]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,6 +52,10 @@ const AddJobContainer = () => {
     dispatch(createPost(newJobPosting));
     // navigate('/listings');
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <AddJobForm
