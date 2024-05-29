@@ -26,6 +26,7 @@ const LoginContainer = () => {
     }
 
     if (success) {
+      localStorage.setItem('user', JSON.stringify(user));
       navigate('/listings');
     }
     dispatch(reset());
