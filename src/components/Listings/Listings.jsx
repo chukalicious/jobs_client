@@ -10,12 +10,21 @@ const Listings = ({ posts }) => {
         >
           <div className='card-body'>
             <h2 className='card-title'>{job.title}</h2>
-            <p>{job.company}</p>
-            <p>{job.description}</p>
-            <p>{job.location}</p>
-            <p>{job.salary}</p>
+            <p>Company: {job.company}</p>
+            <p>Description: {job.description}</p>
+            <p>Location: {job.location}</p>
+            <p>Salary: {job.salary}</p>
+            <p>
+              Posted on:{' '}
+              {new Date(job.postedOnDate).toLocaleDateString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+              })}
+            </p>
+            <p>Posted By: {job.postedBy.name} </p>
             <div className='card-actions justify-end'>
-              <button className='btn btn-primary'>Buy Now</button>
+              <button className='btn btn-primary'>edit</button>
             </div>
           </div>
         </div>
