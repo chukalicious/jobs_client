@@ -4,6 +4,7 @@ import Home from './components/Home';
 import ListingsContainer from './components/Listings';
 import RegisterContainer from './components/Register';
 import LoginContainer from './components/Login';
+import AddJobContainer from './components/AddJob';
 import {
   Route,
   createBrowserRouter,
@@ -33,6 +34,10 @@ const App = () => {
         <Route
           path='/listings'
           element={<ListingsContainer />}
+        />
+        <Route
+          path='/create-job'
+          element={<AddJobContainer />}
         />
         <Route
           path='*'

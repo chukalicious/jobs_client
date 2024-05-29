@@ -25,7 +25,15 @@ const ListingsContainer = () => {
 
   return (
     <>
-      <SearchBar />
+      {/* <SearchBar /> */}
+      <div className='navbar text-primary-content flex '>
+        <button
+          onClick={() => navigate('/create-job')}
+          className='btn btn-secondary text-lg mx-auto my-6'
+        >
+          Post New Job
+        </button>
+      </div>
       <Listings posts={posts} />;
     </>
   );
