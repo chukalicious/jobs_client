@@ -29,12 +29,13 @@ const AddJobContainer = () => {
     }
 
     if (success) {
-      console.log('Navigating to /listings');
-      navigate('/listings');
+      console.log('You will be taken to the job listings');
+      // navigate('/listings');
       dispatch(reset());
     }
+
     dispatch(reset());
-  }, [error, success, message, dispatch, navigate, posts]);
+  }, [error, success, message, dispatch, navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,7 +50,6 @@ const AddJobContainer = () => {
       authorID: user._id,
     };
     dispatch(createPost(newJobPosting));
-
     // navigate('/listings');
   };
 
