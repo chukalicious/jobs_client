@@ -10,7 +10,6 @@ const ListingsContainer = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts.posts);
   const loading = useSelector((state) => state.posts.loading);
-  console.log('ListingsContainer: loading: ', loading);
   const user = useSelector((state) => state.auth); // user: user.user { _id: '60f7b3b3b3
 
   useEffect(() => {
