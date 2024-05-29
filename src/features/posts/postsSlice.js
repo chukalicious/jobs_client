@@ -82,7 +82,10 @@ export const postsSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => {
-      initialState;
+      state.loading = false;
+      state.success = false;
+      state.error = false;
+      state.message = '';
     },
   },
   extraReducers: (builder) => {
@@ -99,12 +102,32 @@ export const postsSlice = createSlice({
       state.message = '';
       state.posts = action.payload;
     });
-    builder.addCase(getPosts.rejected, (state, action) => {
-      state.loading = false;
-      state.success = false;
-      state.error = true;
-      state.message = action.payload;
-    });
+    builder
+      .addCase(getPosts.rejected, (state, action) => {
+        state.loading = false;
+        state.success = false;
+        state.error = true;
+        state.message = action.payload;
+      })
+      .addCase(createPost.pending, (state) => {
+        state.loading = true;
+        state.success = false;
+        state.error = false;
+        state.message = '';
+      })
+      .addCase(createPost.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.error = false;
+        state.message = '';
+        state.posts.push(action.payload);
+      })
+      .addCase(createPost.rejected, (state, action) => {
+        state.loading = false;
+        state.success = false;
+        state.error = true;
+        state.message = action.payload;
+      });
   },
 });
 

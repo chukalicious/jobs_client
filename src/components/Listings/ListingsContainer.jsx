@@ -16,9 +16,8 @@ const ListingsContainer = () => {
       navigate('/login');
     }
     dispatch(getPosts());
-    return () => {
-      dispatch(reset());
-    };
+
+    dispatch(reset());
   }, [user.user, navigate, dispatch, posts]);
 
   return (

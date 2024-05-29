@@ -34,6 +34,10 @@ const LoginContainer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!loginData.email || !loginData.password) {
+      alert('Please enter email and password');
+      return;
+    }
     dispatch(login(loginData));
   };
 
