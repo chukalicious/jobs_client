@@ -1,4 +1,5 @@
 import RegisterForm from './RegisterForm';
+import { Hearts } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -58,7 +59,15 @@ const RegisterContainer = () => {
   };
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    <Hearts
+      height='80'
+      width='80'
+      color='#4fa94d'
+      ariaLabel='hearts-loading'
+      wrapperStyle={{}}
+      wrapperClass=''
+      visible={true}
+    />;
   }
 
   return (

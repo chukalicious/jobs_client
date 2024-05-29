@@ -9,6 +9,8 @@ const ListingsContainer = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts.posts);
+  const loading = useSelector((state) => state.posts.loading);
+  console.log('ListingsContainer: loading: ', loading);
   const user = useSelector((state) => state.auth); // user: user.user { _id: '60f7b3b3b3
 
   useEffect(() => {
@@ -19,6 +21,18 @@ const ListingsContainer = () => {
 
     dispatch(reset());
   }, [user.user, navigate, dispatch, posts]);
+
+  if (loading) {
+    <Hearts
+      height='80'
+      width='80'
+      color='#EEAF39'
+      ariaLabel='hearts-loading'
+      wrapperStyle={{}}
+      wrapperClass=''
+      visible={true}
+    />;
+  }
 
   return (
     <>
